@@ -1,0 +1,13 @@
+.blackbg {
+    -fx-background-color: black;
+}
+
+.scrollpaneblackbg {
+    -fx-background: black;
+    -fx-background-color: black;
+}
+
+.terminaltext {
+    -fx-fill: #39ff14;
+    -fx-font-size: 11pt;
+}

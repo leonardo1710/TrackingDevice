@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="296.0" prefWidth="522.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.trackingdevice.controllers.RegistrationController">
+   <Label layoutX="83.0" layoutY="75.0" text="Teamname" />
+   <Label layoutX="83.0" layoutY="130.0" text="Passwort" />
+   <TextField fx:id="team" layoutX="83.0" layoutY="92.0" />
+   <PasswordField fx:id="password" layoutX="83.0" layoutY="147.0" />
+   <PasswordField fx:id="password2" layoutX="83.0" layoutY="200.0" />
+   <Label layoutX="83.0" layoutY="183.0" text="Passwort wiederholen" />
+   <Label layoutX="288.0" layoutY="75.0" text="Name 1. Mitglied" />
+   <Label layoutX="288.0" layoutY="130.0" text="Name 2. Mitglied" />
+   <Label layoutX="288.0" layoutY="183.0" text="Name 3. Mitglied (optional)" />
+   <TextField fx:id="member1" layoutX="288.0" layoutY="92.0" promptText="Vorname Nachname" />
+   <TextField fx:id="member2" layoutX="288.0" layoutY="147.0" promptText="Vorname Nachname" />
+   <TextField fx:id="member3" layoutX="288.0" layoutY="200.0" promptText="Vorname Nachname" />
+   <Label fx:id="message" layoutX="173.0" layoutY="225.0" prefHeight="17.0" prefWidth="275.0" />
+   <Text layoutX="83.0" layoutY="30.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bitte füllen Sie die nachstehenden Formularfelder aus. Ein Login ist bei Neustart der Applikation nicht erforderlich." textAlignment="CENTER" wrappingWidth="364.72119140625" />
+   <JFXButton layoutX="83.0" layoutY="243.0" onAction="#register" text="Registrieren" style="-fx-background-color: #22b3b5;" textFill="WHITE" />
+   <JFXButton layoutX="193.0" layoutY="243.0" onAction="#login" text="Login" style="-fx-background-color: #d3d3d3;" textFill="WHITE"/>
+</AnchorPane>
