@@ -2,7 +2,7 @@
 
 Welcome to the repository of **Prof. Crustacis' Tracking Device**. This groundbreaking tool was developed to pinpoint anomalous activity and monitor potential portal locations. Use it wisely, as it may hold the key to saving the world!
 
-![Tracking Device](tracking_img.png)
+![Tracking Device](tracking_img.jpg)
 
 ## Features
 - Tracks portal-like activity across different locations.
