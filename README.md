@@ -2,12 +2,12 @@
 
 Welcome to the repository of **Prof. Crustacis' Tracking Device**. This groundbreaking tool was developed to pinpoint anomalous activity and monitor potential portal locations. Use it wisely, as it may hold the key to saving the world!
 
-![Tracking Device](tracking_img.jpg)
+<img src="tracking_image.jpg" alt="image" width="450">
 
 ## Features
-- Tracks portal-like activity across different locations.
-- Powered by state-of-the-art algorithms.
-- Designed for intuitive use in IntelliJ with Gradle.
+- Tracks portal-like activity across different locations 🔍.
+- Powered by state-of-the-art algorithms 🔥.
+- Designed for intuitive use in IntelliJ with Gradle 👍.
 
 ## Getting Started
 
