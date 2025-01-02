@@ -28,11 +28,9 @@ public class Riddle6SceneController extends BaseController {
     @FXML
     private ImageView image;
 
-    @FXML
-    private Label label;
 
     @FXML
-    private PasswordField passwordField;
+    private TextField turnsField;
 
     @FXML
     private Button deactivate;
@@ -48,7 +46,7 @@ public class Riddle6SceneController extends BaseController {
 
     @FXML
     private void deactivatePortal() {
-        riddleSceneBaseController.submit(passwordField.getText(), null);
+        riddleSceneBaseController.submit(turnsField.getText(), null);
     }
 
     @Override
@@ -64,15 +62,13 @@ public class Riddle6SceneController extends BaseController {
             image.setPreserveRatio(true);
         });
 
-        label.setVisible(true);
-
-        passwordField.setVisible(true);
-        passwordField.setDisable(true);
+        turnsField.setVisible(true);
+        turnsField.setDisable(true);
 
         deactivate.setVisible(true);
         deactivate.setDisable(true);
 
-        List<Control> controls = new ArrayList<>() {{add(passwordField); add(deactivate);}};
+        List<Control> controls = new ArrayList<>() {{add(turnsField); add(deactivate);}};
 
         if (response.getJSONObject("riddle").has("message")) {
             terminalMessage = response.getJSONObject("riddle").get("message").toString().replace("<team>", User.getInstance().getTeam());
@@ -92,7 +88,7 @@ public class Riddle6SceneController extends BaseController {
             // print text
             terminal.setText(terminalMessage);
             // Enable controls after stopping animation
-            List<Control> controlsToEnable = List.of(passwordField, deactivate); // Add more controls if needed
+            List<Control> controlsToEnable = List.of(turnsField, deactivate); // Add more controls if needed
             controlsToEnable.forEach(control -> control.setDisable(false));
         }
     }

@@ -2,6 +2,8 @@ package at.ac.fhcampuswien.trackingdevice.controllers;
 
 import at.ac.fhcampuswien.trackingdevice.configs.API;
 import at.ac.fhcampuswien.trackingdevice.configs.User;
+import at.ac.fhcampuswien.trackingdevice.helpers.Localizer;
+import at.ac.fhcampuswien.trackingdevice.helpers.PortalTracker;
 import at.ac.fhcampuswien.trackingdevice.utils.RiddleSceneBaseController;
 import at.ac.fhcampuswien.trackingdevice.utils.ApiResponseHandler;
 import at.ac.fhcampuswien.trackingdevice.utils.UIUtility;
@@ -22,12 +24,10 @@ import java.util.*;
 
 public class Riddle4SceneController extends BaseController implements Initializable {
     private final String RIDDLEID = "4";
+    static public boolean portalTrackerActive = false;
 
     @FXML
-    private TextField datetime;
-
-    @FXML
-    private Button submit;
+    private Button localizeButton;
 
     @FXML
     private Text terminal;
@@ -40,6 +40,8 @@ public class Riddle4SceneController extends BaseController implements Initializa
 
     private final RiddleSceneBaseController riddleSceneBaseController = new RiddleSceneBaseController(RIDDLEID);
 
+    public String noteFromDocCrusty;
+
     private Timeline timeline;
 
     static public String terminalMessage = "";
@@ -48,20 +50,25 @@ public class Riddle4SceneController extends BaseController implements Initializa
     public void initialize(URL location, ResourceBundle resources) {
         // DO NOT CHANGE THIS METHOD CALL
         riddleSceneBaseController.initializeRiddleScene(onResolveApiResponse);
-
-        // TODO: test your implementation here
-        calculateDateTime(0);
     }
 
-    // TODO: Calculate the correct date and time at which the portal will open
-    private void calculateDateTime(long timestampInMilliseconds) {
-        String datetime = "";
-        System.out.println(">> calculateDateTime >> the calculated date and time is: " + datetime);
+    public static String getField(int x, int y){
+        // TODO: implement the algorithm
+        return "(X/Y)"; // use the provided format
     }
 
-    // DO NOT CHANGE THIS METHOD
-    public void submitDatetime() {
-        riddleSceneBaseController.submit(datetime.getText(), null);
+    public void onLocalizeButtonClicked() {
+        //TODO: implement getField and use its return with portalTracker
+        String field = getField(75, 53);
+        //TODO: use portalTracker to find Portal (have a look at the PortalTracker class to find out how)
+        Localizer portalTracker = new PortalTracker();
+
+        // DO NOT CHANGE ANYTHING BELOW THIS LINE
+        if (!portalTrackerActive) {
+            terminalMessage = noteFromDocCrusty;
+            System.err.println("Portaltracker: Device incomplete! Localizer missing.");
+        }
+        timeline = UIUtility.animateTypewriterConstant(terminal, terminalMessage, new ArrayList<>() {{add(localizeButton);}});
     }
 
     // DO NOT CHANGE THIS VARIABLE
@@ -69,13 +76,12 @@ public class Riddle4SceneController extends BaseController implements Initializa
         final Image background = new Image(API.BASE_URI + response.getJSONObject("riddle").get("img").toString());
         Platform.runLater(() -> image.setImage(background));
 
-        submit.setVisible(true);
-        submit.setDisable(true);
+        localizeButton.setDisable(true);
 
-        datetime.setVisible(true);
-        datetime.setDisable(true);
+        List<Control> controls = new ArrayList<>() {{add(localizeButton);}};
 
-        List<Control> controls = new ArrayList<>() {{add(submit); add(datetime);}};
+        noteFromDocCrusty = "Hinterlegte Notiz von Dr. Victor Crustacis: Dieses Control funktioniert noch nicht wie es sollte.  Ihr müsst das korrekte Feld im Format (x/y) ermitteln und an die zugehörige Methode im PortalTracker übergeben, um eure Eingabe zu verifizieren.\n" +
+                "Vergesst dabei nicht, das Localizer-Interface im PortalTracker zu implementieren – ohne diese Anpassung wird das System das Portal nicht ordnungsgemäß verfolgen können. Viel Erfolg!";
 
         if (response.getJSONObject("riddle").has("message")) {
             terminalMessage = response.getJSONObject("riddle").get("message").toString().replace("<team>", User.getInstance().getTeam());
@@ -89,6 +95,10 @@ public class Riddle4SceneController extends BaseController implements Initializa
         RiddleSceneBaseController.initializeZoomableImageView(image, scrollPane);
     };
 
+    public void printProfHint() {
+        System.out.println(">> Hinterlegte Notiz von Prof. Dr. Victor Crustacis: Dieses Kuvert ist nur ein Abbild des Originals. Das Original holt bitte von meinen Kollegen!");
+    }
+
     @FXML
     public void skipTypewriterAnimation(){
         // Stop the timeline when the stop button is clicked
@@ -97,7 +107,7 @@ public class Riddle4SceneController extends BaseController implements Initializa
             // print text
             terminal.setText(terminalMessage);
             // Enable controls after stopping animation
-            List<Control> controlsToEnable = List.of(submit, datetime); // Add more controls if needed
+            List<Control> controlsToEnable = List.of(localizeButton); // Add more controls if needed
             controlsToEnable.forEach(control -> control.setDisable(false));
         }
     }

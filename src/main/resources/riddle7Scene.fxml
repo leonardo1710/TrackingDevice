@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXToggleButton?>
 <?import java.lang.String?>
-<?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Text?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<AnchorPane maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.trackingdevice.controllers.Riddle7SceneController">
+<AnchorPane maxHeight="600.0" maxWidth="800.0" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.trackingdevice.controllers.Riddle7SceneController">
     <ScrollPane fx:id="scrollPane" hbarPolicy="NEVER" maxHeight="450.0" maxWidth="800.0" prefHeight="450.0" prefWidth="800.0" styleClass="scrollpaneblackbg" stylesheets="@css/styles.css" vbarPolicy="NEVER">
         <AnchorPane fx:id="canvas" minHeight="0.0" minWidth="0.0" styleClass="blackbg" stylesheets="@css/styles.css">
             <ImageView fx:id="image" fitHeight="448.0" fitWidth="798.0" pickOnBounds="true" preserveRatio="true">
@@ -18,7 +17,7 @@
             </ImageView>
         </AnchorPane>
     </ScrollPane>
-    <ScrollPane hbarPolicy="NEVER" onMouseClicked="#skipTypewriterAnimation" layoutY="505.0" prefHeight="100.0" prefWidth="800.0" stylesheets="@css/styles.css">
+    <ScrollPane hbarPolicy="NEVER" layoutY="505.0" onMouseClicked="#skipTypewriterAnimation" prefHeight="100.0" prefWidth="800.0" stylesheets="@css/styles.css">
         <styleClass>
             <String fx:value="blackbg" />
             <String fx:value="scrollpaneblackbg" />
@@ -27,11 +26,10 @@
             <Text fx:id="terminal" layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="terminaltext" wrappingWidth="760.0" />
         </AnchorPane>
     </ScrollPane>
-    <JFXToggleButton fx:id="flatteryToggle" layoutX="345.0" layoutY="451.0" text="Flattery" />
-    <JFXToggleButton fx:id="butterToggle" layoutX="462.0" layoutY="451.0" text="Butter" />
-    <JFXToggleButton fx:id="parsnipsToggle" layoutX="124.0" layoutY="451.0" text="Parsnips" />
-    <JFXToggleButton fx:id="noToggle" layoutX="246.0" layoutY="451.0" text="No" />
-    <JFXToggleButton fx:id="dothToggle" layoutX="576.0" layoutY="451.0" text="Doth" />
-    <JFXButton fx:id="resetBtn" layoutX="734.0" layoutY="467.0" mnemonicParsing="false" onAction="#resetToggles" text="Reset" style="-fx-background-color: #22b3b5;" textFill="WHITE"/>
-    <JFXButton fx:id="openEnvelopeBtn" layoutX="14.0" layoutY="467.0" mnemonicParsing="false" onAction="#openEnvelope" text="Open Envelope" style="-fx-background-color: #22b3b5;" textFill="WHITE"/>
+    <JFXToggleButton fx:id="blueToggle" layoutX="345.0" layoutY="451.0" toggleColor="#0000FF" unToggleColor="#0000FF" toggleLineColor="#0000FF" />
+    <JFXToggleButton fx:id="yellowToggle" layoutX="462.0" layoutY="451.0" toggleColor="#FFFF00" toggleLineColor="#FFFF00" unToggleColor="#FFFF00" />
+    <JFXToggleButton fx:id="redToggle" layoutX="124.0" layoutY="451.0" toggleColor="#FF0000" toggleLineColor="#FF0000" unToggleColor="#FF0000" />
+    <JFXToggleButton fx:id="greenToggle" layoutX="246.0" layoutY="451.0" unToggleColor="#00FF00" toggleColor="#00FF00" toggleLineColor="#00FF00" />
+    <JFXToggleButton fx:id="violetToggle" layoutX="576.0" layoutY="451.0" toggleColor="#FF00FF" toggleLineColor="#FF00FF" unToggleColor="#FF00FF" />
+    <JFXButton fx:id="resetBtn" layoutX="734.0" layoutY="467.0" mnemonicParsing="false" onAction="#resetToggles" style="-fx-background-color: #22b3b5;" text="Reset" textFill="WHITE" />
 </AnchorPane>

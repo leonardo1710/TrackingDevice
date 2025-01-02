@@ -23,6 +23,9 @@ public class Riddle3SceneController extends BaseController implements Initializa
     private Button verify;
 
     @FXML
+    private TextField messageField;
+
+    @FXML
     private Text terminal;
 
     @FXML
@@ -43,19 +46,30 @@ public class Riddle3SceneController extends BaseController implements Initializa
         riddleSceneBaseController.initializeRiddleScene(onResolveApiResponse);
     }
 
-    // DO NOT CHANGE THE FUNCTION DECLARATION
-    private String getSecretOfNumericalDance(List<Integer> numbers){
-        // TODO: guess the hidden secret by providing the correct algorithm here
+    private String cipher(String message, int offset) {
+        if (offset <= 0) {
+            System.err.println("No valid offset defined.");
+            return message;
+        }
+
+        // TODO write cipher algorithm and return encoded message
+
         return "";
     }
 
     @FXML
     public void verifyAlgorithm(){
-        // TODO: complete the getSecretOfCodesDance() function
-        //  DO NOT CHANGE ANYTHING HERE
-        List<Integer> numbers = Arrays.asList(100, 21, 30, 14, 59, 6, 7, 455, 902, 10, 33, 42);
-        String secret = getSecretOfNumericalDance(numbers);
-        riddleSceneBaseController.submit(secret, null);
+        if(messageField.getText().equals("")){
+            UIUtility.animateTypewriterConstant(terminal, ">>Please enter the password.", null);
+            return;
+        }
+
+        // TODO: implement complete the cipher method
+        // TODO: provide correct offset
+        int offset = 0;
+        String code = cipher(messageField.getText(), offset);
+
+        riddleSceneBaseController.submit(code, null);
     }
 
     // DO NOT CHANGE THIS VARIABLE

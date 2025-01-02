@@ -71,7 +71,7 @@ public class RegistrationController extends BaseController {
             boolean success = User.getInstance().login(team.getText(), password.getText());
             if(success) {
                 try {
-                    SceneLoader.getInstance(stage, "riddle"+ (User.getInstance().getCurrentRiddle() + 1)+"Scene.fxml", "Riddle " + (User.getInstance().getCurrentRiddle() + 1) ).start();
+                    SceneLoader.getInstance(stage, "riddle"+ (User.getInstance().getCurrentRiddle())+"Scene.fxml", "Riddle " + (User.getInstance().getCurrentRiddle() + 1) ).start();
                 } catch (IOException e) {
                     System.out.println(e.getMessage());
                 } catch (Exception e) {

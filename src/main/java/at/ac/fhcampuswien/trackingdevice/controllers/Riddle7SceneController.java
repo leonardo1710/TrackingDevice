@@ -49,25 +49,22 @@ public class Riddle7SceneController extends BaseController {
     private ImageView image;
 
     @FXML
-    private JFXToggleButton parsnipsToggle;
+    private JFXToggleButton blueToggle;
 
     @FXML
-    private JFXToggleButton flatteryToggle;
+    private JFXToggleButton yellowToggle;
 
     @FXML
-    private JFXToggleButton noToggle;
+    private JFXToggleButton redToggle;
 
     @FXML
-    private JFXToggleButton butterToggle;
+    private JFXToggleButton greenToggle;
 
     @FXML
-    private JFXToggleButton dothToggle;
+    private JFXToggleButton violetToggle;
 
     @FXML
     private Button resetBtn;
-
-    @FXML
-    private Button openEnvelopeBtn;
 
     private final RiddleSceneBaseController riddleSceneBaseController = new RiddleSceneBaseController(RIDDLEID);
 
@@ -103,58 +100,49 @@ public class Riddle7SceneController extends BaseController {
     }
 
     private void initializeSwitches(){
-        butterToggle.setOnAction((ActionEvent e) -> {
-            System.out.println("> butter switch activated");
-            butterToggle.setDisable(true);
-            activateToggle("Butter");
+        yellowToggle.setOnAction((ActionEvent e) -> {
+            System.out.println("> yellow switch activated");
+            yellowToggle.setDisable(true);
+            activateToggle("#FFFF00");
         });
 
-        dothToggle.setOnAction((ActionEvent e) -> {
-            System.out.println("> doth switch activated");
-            dothToggle.setDisable(true);
-            activateToggle("Doth");
+        redToggle.setOnAction((ActionEvent e) -> {
+            System.out.println("> red switch activated");
+            redToggle.setDisable(true);
+            activateToggle("#FF0000");
         });
 
-        parsnipsToggle.setOnAction((ActionEvent e) -> {
-            System.out.println("> parsnips switch activated.");
-            parsnipsToggle.setDisable(true);
-            activateToggle("Parsnips");
+        blueToggle.setOnAction((ActionEvent e) -> {
+            System.out.println("> blue switch activated.");
+            blueToggle.setDisable(true);
+            activateToggle("#0000FF");
         });
 
-        noToggle.setOnAction((ActionEvent e) -> {
-            System.out.println("> no switch activated");
-            noToggle.setDisable(true);
-            activateToggle("No");
+        greenToggle.setOnAction((ActionEvent e) -> {
+            System.out.println("> green switch activated");
+            greenToggle.setDisable(true);
+            activateToggle("#00FF00");
         });
 
-        flatteryToggle.setOnAction((ActionEvent e) -> {
-            System.out.println("> flattery switch activated.");
-            flatteryToggle.setDisable(true);
-            activateToggle("Flattery");
+        violetToggle.setOnAction((ActionEvent e) -> {
+            System.out.println("> violet switch activated.");
+            violetToggle.setDisable(true);
+            activateToggle("#FF00FF");
         });
-    }
-
-    @FXML
-    private void openEnvelope(){
-        try {
-            Desktop.getDesktop().browse(new URL("https://www.dropbox.com/sh/qwszyjcbel3ab7d/AACTX9787nk4Q5epM_GpqQd-a?dl=0").toURI());
-        } catch (IOException | URISyntaxException e) {
-            e.printStackTrace();
-        }
     }
 
     @FXML
     private void resetToggles() {
-        parsnipsToggle.setSelected(false);
-        flatteryToggle.setSelected(false);
-        dothToggle.setDisable(false);
-        parsnipsToggle.setDisable(false);
-        flatteryToggle.setDisable(false);
-        dothToggle.setSelected(false);
-        butterToggle.setSelected(false);
-        noToggle.setSelected(false);
-        butterToggle.setDisable(false);
-        noToggle.setDisable(false);
+        greenToggle.setSelected(false);
+        greenToggle.setDisable(false);
+        blueToggle.setSelected(false);
+        blueToggle.setDisable(false);
+        yellowToggle.setDisable(false);
+        yellowToggle.setSelected(false);
+        violetToggle.setDisable(false);
+        violetToggle.setSelected(false);
+        redToggle.setDisable(false);
+        redToggle.setSelected(false);
         message = "";
         togglesActivated = 0;
         System.out.println("> reset of switches successful.");
@@ -162,8 +150,9 @@ public class Riddle7SceneController extends BaseController {
 
     private void activateToggle(String toggleActivated){
         message += toggleActivated;
+        System.out.println(message);
         togglesActivated++;
-        if(togglesActivated == 5){
+        if(togglesActivated == 4){
             sendActivation();
         }
     }
@@ -174,7 +163,7 @@ public class Riddle7SceneController extends BaseController {
 
     // DO NOT CHANGE THIS VARIABLE
     private final ApiResponseHandler onResolveApiResponse = (response) -> {
-        List<Control> controls = new ArrayList<>() {{add(openEnvelopeBtn);add(butterToggle);add(resetBtn);add(noToggle);add(parsnipsToggle);add(flatteryToggle);add(dothToggle);}};
+        List<Control> controls = new ArrayList<>() {{add(redToggle);add(resetBtn);add(yellowToggle);add(blueToggle);add(greenToggle);add(violetToggle);}};
         final Image background = new Image(API.BASE_URI + response.getJSONObject("riddle").get("img1").toString());
         // update image on FX thread
         final ImageView creature1 = new ImageView(new Image(API.BASE_URI + response.getJSONObject("riddle").get("img2").toString()));
@@ -211,7 +200,7 @@ public class Riddle7SceneController extends BaseController {
 
     @FXML
     public void skipTypewriterAnimation(){
-        List<Control> controls = new ArrayList<>() {{add(openEnvelopeBtn);add(butterToggle);add(resetBtn);add(noToggle);add(parsnipsToggle);add(flatteryToggle);add(dothToggle);}};
+        List<Control> controls = new ArrayList<>() {{add(redToggle);add(resetBtn);add(yellowToggle);add(blueToggle);add(greenToggle);add(violetToggle);}};
 
         // Stop the timeline when the stop button is clicked
         if (timeline != null) {

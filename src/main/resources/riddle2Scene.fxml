@@ -16,5 +16,5 @@
          <Text fx:id="terminal" layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="terminaltext" wrappingWidth="760.0" />
       </AnchorPane>
    </ScrollPane>
-   <JFXButton fx:id="playBtn" disable="true" layoutX="362.0" layoutY="561.0" onAction="#playAudio" style="-fx-background-color: #22b3b5;" text="Play Audio" textFill="WHITE" />
+   <JFXButton fx:id="playBtn" disable="true" layoutX="362.0" layoutY="561.0" onAction="#playAudio" style="-fx-background-color: #22b3b5;" text="Play Audio Message" textFill="WHITE" />
 </AnchorPane>

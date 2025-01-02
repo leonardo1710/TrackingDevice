@@ -15,7 +15,7 @@
 <AnchorPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.trackingdevice.controllers.Riddle4SceneController">
     <ScrollPane fx:id="scrollPane" prefHeight="450.0" prefWidth="800.0" styleClass="scrollpaneblackbg" stylesheets="@css/styles.css">
         <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="blackbg" stylesheets="@css/styles.css">
-            <HBox fx:id="imageBox" alignment="CENTER" prefHeight="450.0" prefWidth="800.0">
+            <HBox fx:id="imageBox" alignment="CENTER" onMouseClicked="#printProfHint" prefHeight="450.0" prefWidth="800.0">
                 <ImageView fx:id="image" fitHeight="247.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
                     <effect>
                         <DropShadow>
@@ -32,6 +32,17 @@
             </AnchorPane>
         </AnchorPane>
     </ScrollPane>
+
+    <JFXButton fx:id="localizeButton"
+               buttonType="RAISED"
+               text="Localize Portal"
+               textFill="WHITE"
+               style="-fx-background-color: #22b3b5;"
+               onAction="#onLocalizeButtonClicked"
+               AnchorPane.leftAnchor="300.0"
+               AnchorPane.rightAnchor="300.0"
+               AnchorPane.bottomAnchor="112.0" />
+
     <ScrollPane hbarPolicy="NEVER" onMouseClicked="#skipTypewriterAnimation" layoutY="500.0" prefHeight="100.0" prefWidth="800.0" stylesheets="@css/styles.css">
         <styleClass>
             <String fx:value="blackbg" />
@@ -41,6 +52,5 @@
             <Text fx:id="terminal" layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="terminaltext" wrappingWidth="760.0" />
         </AnchorPane>
     </ScrollPane>
-    <TextField fx:id="datetime" accessibleText="Datetime (dd.mm.yyyy hh:mm)" layoutX="221.0" layoutY="464.0" prefHeight="26.0" prefWidth="179.0" promptText="Datetime (dd.mm.yyyy hh:mm)" stylesheets="@css/styles.css" visible="true" />
-    <JFXButton fx:id="submit" buttonType="RAISED" layoutX="422.0" layoutY="464.0" onAction="#submitDatetime" style="-fx-background-color: #22b3b5;" text="Submit" textFill="WHITE" visible="true" />
+
 </AnchorPane>

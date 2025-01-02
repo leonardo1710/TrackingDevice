@@ -45,5 +45,6 @@
             <Text fx:id="terminal" layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="terminaltext" wrappingWidth="760.0" />
         </AnchorPane>
     </ScrollPane>
-    <JFXButton fx:id="verify" buttonType="RAISED" layoutX="347.0" layoutY="464.0" onAction="#verifyAlgorithm" visible="false" style="-fx-background-color: #22b3b5;" text="Verify Algorithm" textFill="WHITE" />
+    <TextField fx:id="messageField" accessibleText="Enter Password" layoutX="221.0" layoutY="464.0" prefHeight="26.0" prefWidth="179.0" promptText="Enter Password" stylesheets="@css/styles.css" visible="true" />
+    <JFXButton fx:id="verify" buttonType="RAISED" layoutX="422.0" layoutY="464.0" onAction="#verifyAlgorithm" style="-fx-background-color: #22b3b5;" text="Verify Cipher Algorithm" textFill="WHITE" visible="true" />
 </AnchorPane>
