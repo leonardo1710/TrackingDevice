@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.HBox?>
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.trackingdevice.controllers.Riddle6SceneController">
+   <ScrollPane fx:id="scrollPane" prefHeight="450.0" prefWidth="800.0" styleClass="scrollpaneblackbg" stylesheets="@css/styles.css">
+      <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="blackbg" stylesheets="@css/styles.css">
+         <ImageView fx:id="image" fitHeight="448.0" fitWidth="798.0" pickOnBounds="true" preserveRatio="true">
+            <Image url="@images/progress2.gif" />
+         </ImageView>
+      </AnchorPane>
+   </ScrollPane>
+   <HBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="362.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <TextField fx:id="turnsField" accessibleText="Number of turns" promptText="Number of turns" prefHeight="26.0" prefWidth="150.0" visible="false" />
+      <JFXButton fx:id="deactivate" onAction="#deactivatePortal" style="-fx-background-color: #22b3b5;" text="Turn the wheel" textFill="WHITE" visible="false" />
+   </HBox>
+   <ScrollPane hbarPolicy="NEVER" layoutY="500.0" onMouseClicked="#skipTypewriterAnimation" prefHeight="350.0" prefWidth="800.0" stylesheets="@css/styles.css">
+      <styleClass>
+         <String fx:value="blackbg" />
+         <String fx:value="scrollpaneblackbg" />
+      </styleClass>
+      <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="800.0" styleClass="blackbg" stylesheets="@css/styles.css">
+         <Text fx:id="terminal" layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="terminaltext" wrappingWidth="760.0" />
+      </AnchorPane>
+   </ScrollPane>
+</AnchorPane>

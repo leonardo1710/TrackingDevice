@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.trackingdevice.controllers.Riddle5SceneController">
+    <ScrollPane fx:id="scrollPane" prefHeight="550.0" prefWidth="800.0" styleClass="scrollpaneblackbg" stylesheets="@css/styles.css">
+        <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="blackbg" stylesheets="@css/styles.css">
+            <HBox fx:id="imageBox" alignment="CENTER" prefHeight="450.0" prefWidth="800.0">
+                <ImageView fx:id="image" fitHeight="247.0" fitWidth="350.0" pickOnBounds="true" preserveRatio="true">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.6509804129600525" green="0.5803921818733215" blue="0.5803921818733215" />
+                            </color>
+                        </DropShadow>
+                    </effect>
+                    <Image url="@images/progress2.gif" />
+                </ImageView>
+            </HBox>
+        </AnchorPane>
+    </ScrollPane>
+    <HBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="262.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <TextField fx:id="timeField" accessibleText="enter time" promptText="Enter time" prefHeight="26.0" prefWidth="150.0" visible="false" />
+        <JFXButton fx:id="submit" onAction="#submit" style="-fx-background-color: #22b3b5;" text="Submit" textFill="WHITE" visible="false" />
+    </HBox>
+    <ScrollPane layoutY="600.0" onMouseClicked="#skipTypewriterAnimation" prefHeight="250.0" prefWidth="800.0" stylesheets="@css/styles.css">
+        <styleClass>
+            <String fx:value="blackbg" />
+            <String fx:value="scrollpaneblackbg" />
+        </styleClass>
+        <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="blackbg" stylesheets="@css/styles.css">
+            <Text fx:id="terminal" layoutX="14.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="terminaltext" wrappingWidth="760.0" />
+        </AnchorPane>
+    </ScrollPane>
+</AnchorPane>

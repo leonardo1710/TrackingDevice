@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import java.lang.String?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
+
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.paint.Color?>
+<AnchorPane prefHeight="800.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="at.ac.fhcampuswien.trackingdevice.controllers.Riddle3SceneController">
+    <ScrollPane fx:id="scrollPane" prefHeight="550.0" prefWidth="800.0" styleClass="scrollpaneblackbg"
+                stylesheets="@css/styles.css">
+        <AnchorPane minHeight="0.0" minWidth="0.0" styleClass="blackbg" stylesheets="@css/styles.css">
+            <HBox fx:id="imageBox" alignment="CENTER" prefHeight="550.0" prefWidth="800.0">
+                <ImageView fx:id="image" fitHeight="247.0" fitWidth="350.0"
+                           pickOnBounds="true" preserveRatio="true">
+                    <effect>
+                        <DropShadow>
+                            <color>
+                                <Color red="0.6509804129600525" green="0.5803921818733215"
+                                       blue="0.5803921818733215"/>
+                            </color>
+                        </DropShadow>
+                    </effect>
+                    <Image url="@images/progress2.gif"/>
+                </ImageView>
+            </HBox>
+            <AnchorPane >
+                <Text text="Scroll to zoom in/out" fill="WHITE" textAlignment="RIGHT" AnchorPane.bottomAnchor="10" AnchorPane.rightAnchor="10" />
+            </AnchorPane>
+        </AnchorPane>
+    </ScrollPane>
+    <HBox alignment="CENTER" spacing="10.0" AnchorPane.bottomAnchor="262.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+        <TextField fx:id="messageField" accessibleText="Enter Password" prefHeight="26.0" prefWidth="179.0" promptText="Enter Password" stylesheets="@css/styles.css" visible="true" />
+        <JFXButton fx:id="verify" buttonType="RAISED" onAction="#verifyAlgorithm" style="-fx-background-color: #22b3b5;" text="Verify Cipher Algorithm" textFill="WHITE" visible="true" />
+    </HBox>
+
+    <ScrollPane onMouseClicked="#skipTypewriterAnimation" hbarPolicy="NEVER" layoutY="600.0" prefHeight="250.0" prefWidth="800.0" stylesheets="@css/styles.css">
+        <styleClass>
+            <String fx:value="blackbg" />
+            <String fx:value="scrollpaneblackbg" />
+        </styleClass>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefWidth="800.0" styleClass="blackbg" stylesheets="@css/styles.css">
+            <Text fx:id="terminal" layoutX="10.0" layoutY="20.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="terminaltext" wrappingWidth="760.0" />
+        </AnchorPane>
+    </ScrollPane>
+
+</AnchorPane>
