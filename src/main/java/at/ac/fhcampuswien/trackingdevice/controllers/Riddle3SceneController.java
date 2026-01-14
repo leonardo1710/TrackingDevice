@@ -65,7 +65,7 @@ public class Riddle3SceneController extends BaseController implements Initializa
             return;
         }
 
-        // TODO: implement complete the cipher method
+        // TODO: implement complete the cipher method above
         // TODO: provide correct offset
         int offset = 0;
         String code = cipher(messageField.getText(), offset);
